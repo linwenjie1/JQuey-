@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+        <style>
+                select{
+                    height: 200px;
+                    width: 200px;
+                    background-color: blue;
+                    margin-right: 10px;
+                }
+        </style>
+</head>
+<body>
+
+        <select name="" id="select1" multiple >
+            <option value="">北京</option>
+            <option value="">上海</option>
+            <option value="">南京</option>
+        </select>
+
+        <button id="a">>></button>
+        <button id="b"><<</button>
+        <button id="c">></button>
+        <button id="d"><</button>
+
+        <select name="" id="select2"  multiple>
+        </select>
+</body>
+        <script src="JQuery.js"></script>
+        <script>
+                    // var s1=$('#select1>option').length;
+                    // var s2=$('#select2>option').length;
+                    // $('#a').click(function(){
+
+                    //     for(var i=0; i<s1;i++){
+                    //         console.log(i);
+                    //        var s= $('#select1>option').eq(0);
+                    //        $('#select2').append(s);
+                    //     }
+                    // });
+
+                    // $('#b').click(function(){
+                    //     s2=$('#select2>option').length;
+                    //     console.log(s2);
+                    //     for(var i=0; i<s2;i++){
+                    //         console.log(i);
+                    //        var s= $('#select2>option').eq(0);
+                    //        $('#select1').append(s);
+                    //     }
+                    // });
+
+                    $('#a').click(function(){
+                        $('#select1>option').appendTo($('#select2'));
+                    });
+
+                    $('#b').click(function(){
+                        $('#select2>option').appendTo($('#select1'));
+                    });
+
+                    $('#c').click(function(){
+                        $('#select1>option:selected').appendTo($('#select2'));
+                    });
+
+
+                        //在JQuery的选择器中筛选添加：selected可以选择被选中的元素
+                    $('#d').click(function(){
+                        $('#select2>option:selected').appendTo($('#select1'));
+                    });
+        </script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            li{
+                font-size: 50px;
+                float: left;
+                padding: 0px;
+                margin: 0px;
+                list-style: none;
+            }
+            .black1{
+                    color: black;
+            }
+    </style>
+</head>
+<body>
+            <ul>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+                <li>☆</li>
+            </ul>
+</body>
+<script src="JQuery.js"></script>
+    <script>
+            $('ul>li').on('click',function(){
+                    var flag=$(this).index();
+                    for(var i=0;i<=flag;i++){
+                        $('ul>li').eq(i).css('color','red');
+                    }
+                    for(var i=flag+1;i<= $('ul>li').length;i++){
+                        $('ul>li').eq(i).css('color','black');
+                    }
+                    
+            });
+
+            $('ul>li').on('mouseenter',function(){
+                    var flag=$(this).index();
+                    for(var i=0;i<=flag;i++){
+                        $('ul>li').eq(i).css('color','red');
+                    }
+                    for(var i=flag+1;i<= $('ul>li').length;i++){
+                        $('ul>li').eq(i).css('color','black');
+                    }
+                    
+            });
+
+            $('ul>li').on('mouseleave',function(){
+                // $('ul>li').css('color','black');
+            //    console.log( $('ul>li'));
+                $('ul>li').addClass('black1');
+            });
+
+    </script>
+
+
+</html>

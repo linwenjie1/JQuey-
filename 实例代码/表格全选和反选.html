@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            td{
+                width: 100px;
+                height: 50px;
+            }
+    </style>
+</head>
+<body>
+        <table border="1">
+                    <thead>
+                        <tbody>课程名称 </tbody>
+                        <tbody>所属学院</tbody>
+                        <tbody>操作</tbody>
+                        <tbody><button id="a">删除所有内容</button> <input type="checkbox"  id="a1"> </tbody>
+                    </thead>
+
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>   
+                        <td><button class="b">DELECT</button><input type="checkbox" checked> </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td> 
+                        <td><button class="b">DELECT</button><input type="checkbox" checked> </td>  
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>   
+                        <td><button class="b">DELECT</button><input type="checkbox" checked> </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>   
+                        <td><button class="b">DELECT</button><input type="checkbox" checked> </td>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td> 
+                        <td><button class="b">DELECT</button><input type="checkbox" checked> </td>  
+                    </tr>
+                    
+        </table>
+</body>
+<script src="Jquery.js"></script>
+    <script>
+               $('#a1').click(function(){
+
+                console.log( $('#a1').prop('checked'));
+                // alert( $('#a1').prop('checked'));
+                    $('td>input').prop('checked', $('#a1').prop('checked'));
+               });
+
+            //    $('td>input').click(function(){
+            //     var flag=true;
+            //     for(var i=0;i<$('td>input').length;i++){
+            //         console.log($('td>input').eq(i).prop('checked'));
+            //         if($('td>input').eq(i).prop('checked')==false){
+            //                 $('#a1').prop('checked',false);
+            //                 break;
+            //                 // console.log($('td>input').eq(i).prop('checked'));
+            //            }else{
+            //                $('#a1').prop('checked',"true");
+            //            }
+            //     }
+                   
+            //    });
+
+            $('td>input').click(function(){
+               var checked=$('td>input:checked').length;
+               var length1=$('td input').length;
+               $('#a1').prop('checked',checked==length1);
+            });
+    </script>
+</html>

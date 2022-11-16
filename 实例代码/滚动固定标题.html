@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            body{
+                width: 2000px;
+                height: 2000px;
+                overflow: auto;
+            }
+            #a,#a1{
+                width: 500px;
+                height: 300px;
+                background-color: red;
+            }
+
+            #b{
+                background-color: blue;
+                width: 500px;
+                height: 300px;
+            }
+    </style>
+</head>
+<body>
+        <div id="a"></div>
+        <div id="b"></div>
+        <div id="a1"></div>
+</body>
+        <script src="JQuery.js"></script>
+        <script>
+                    $(window).scroll(function(){
+                        console.log($(window).scrollTop());
+                        var a=$('#a');
+                        var b=$('#b');
+                        if($(window).scrollTop()>a.height()){
+                            b.css({
+                                top:'0px',
+                                position:'fixed',
+                                // backgroundColor:'black'
+                            });
+                            $('#a1').css('marginTop','300px');
+                        }else{
+                            b.css({
+                                position:'static',
+                                backgroundColor:'blue'
+                            });
+                            $('#a1').css('marginTop','0px');
+                        }
+                    });
+                    // 留下一个问题，为什么$('window')不能使用？
+        </script>
+</html>

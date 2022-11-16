@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>基于distpickers.js修改的省市县联动插件</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>	
+		<script src="js/distpicker.data.js"></script>
+		<script src="js/distpicker.js"></script>
+			<!-- 五角星style -->
+			<style>
+				li{
+					font-size: 50px;
+					float: left;
+					padding: 0px;
+					margin: 0px;
+					list-style: none;
+				}
+				.black1{
+						color: black;
+				}
+		</style>
+	</head>
+	<body>
+
+		<!-- 五角星html -->
+		<ul>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+		</ul>
+
+		
+		<button onclick="getval()">获取值</button>
+		<button id="reset">重置</button>
+		<form class="form-inline">
+			<div id="distpicker">
+				<div class="topNet-form-group">
+					<p></p>
+					<label class="sr-only" for="province">Province</label>
+					<input type="hidden" name="province" value="" />
+					<ul class="topNet-form-control" id="province"></ul>
+				</div>
+				<div class="topNet-form-group">
+					<p></p>
+					<label class="sr-only" for="city">City</label>
+					<input type="hidden" name="city" value="" />
+					<ul class="topNet-form-control" id="city" style="left: 1px;"></ul>
+				</div>
+				<div class="topNet-form-group">
+					<p></p>
+					<label class="sr-only" for="district">District</label>
+					<input type="hidden" name="district" value="" />
+					<ul class="topNet-form-control" id="district"></ul>
+				</div>
+			</div>
+		</form>
+	</body>
+	<script>
+		$('#distpicker').distpicker({
+			autoSelect: true,//false 为不选择省市区，反之默认选择北京
+			province:"福建省", //指定省市区
+			city:"厦门市",
+			district:"集美区"
+		});
+		$("#reset").click(function(){
+			var obj={
+				province:"四川省",
+				city:"成都市",
+				district:"成华区"
+			}
+			$('#distpicker').distpicker("reset",false,obj);//false为是否重置为最初状态,主要用于数据回显
+		})
+		function getval(){
+			$('#distpicker').distpicker("getVal",function(result){
+				alert(JSON.stringify(result))
+			});
+		}
+	</script>
+
+					<!-- 五角星scirpt -->
+
+					<script>
+						$('ul>li').on('click',function(){
+								var flag=$(this).index();
+								for(var i=0;i<=flag;i++){
+									$('ul>li').eq(i).css('color','red');
+								}
+								for(var i=flag+1;i<= $('ul>li').length;i++){
+									$('ul>li').eq(i).css('color','black');
+								}
+								
+						});
+			
+						$('ul>li').on('mouseenter',function(){
+								var flag=$(this).index();
+								for(var i=0;i<=flag;i++){
+									$('ul>li').eq(i).css('color','red');
+								}
+								for(var i=flag+1;i<= $('ul>li').length;i++){
+									$('ul>li').eq(i).css('color','black');
+								}
+								
+						});
+			
+						$('ul>li').on('mouseleave',function(){
+							$('ul>li').css('color','black');
+						//    console.log( $('ul>li'));
+							// $('ul>li').addClass('black1');
+						});
+			
+				</script>
+</html>

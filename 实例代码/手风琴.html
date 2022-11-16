@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+                .swarp>ul>li>div{
+                    border: 1px solid grey;
+                    display: none;
+                }
+                span{
+                    height: 500px;
+                }
+        </style>
+</head>
+<body>
+    123
+        <div class="swarp">
+               <ul>       
+                        <li>
+                            我是第一个
+                                <div></div>
+                        </li>  
+
+                        <li>
+                            我是第一个
+                                <div>321</div>
+                        </li>  
+
+                        <li>
+                            我是第一个
+                                <div>321</div>
+                        </li>  
+
+                        <li>
+                            我是第一个
+                                <div>321</div>
+                        </li>  
+               </ul>
+        </div>
+</body>
+<script src="JQuery.js"></script>
+<script>
+            $('.swarp>ul>li').mouseenter(function(){  
+                $(this).children('div').show();
+                $(this).children('div').css('height','200px');
+                // $(this).css('height','200px');
+            });
+
+            $('.swarp>ul>li').mouseleave(function(){  
+                $(this).children('div').hide();
+                $(this).children('div').css('height','0px');
+                // $(this).css('height','20px');
+            });
+</script>
+</html>

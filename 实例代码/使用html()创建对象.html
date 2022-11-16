@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+                table{
+                    
+                    border: 1px solid red;
+                }
+                td{
+                    border: 1px solid blue;
+                }
+        </style>
+</head>
+<body>
+            <button>添加元素</button>
+            <table id="a1">
+                    <tr id="a">
+                       
+                    </tr>
+            </table>
+</body>
+            <script src="JQuery.js"></script>
+            <script>
+                //定义数据
+                var data=[{name:"传智播客",name2:"黑马程序员",name3:"传智前端学院"},
+                        {name:"1",name2:"2",name3:"3"},
+                        {name:"a",name2:"b",name3:"c"}];
+
+                // //把数据按照格式添加到html标签中        
+                //         var arrays=[];
+                //         for(var i=0;i<data.length;i++){
+                //                     arrays.push('<tr>');
+                //                             for(var a in data[i]){
+                //                                     arrays.push('<td>');
+                //                                     arrays.push(data[i][a]);
+                //                                     arrays.push('</td>');
+                //                             }
+                //                     arrays.push('</tr>');
+                //             }
+                //             console.log(arrays);    
+
+                // //单机事件
+                //         $('button').click(function(){
+                //                 $('#a').html(arrays.join(""));
+                //                 console.log(arrays.join(""));
+                //         });    
+                
+
+                $('button').click(function(){
+                              for(var i=0;i<data.length;i++){
+                                     var date=$("<tr><td>"+data[i]['name']+"</td><td>"+data[i]['name2']+"</td><td>"+data[i]['name3']+"</td></tr>");
+                                     $('#a1').append(date);
+                                     console.log(date);
+                            }
+                });   
+
+                
+            </script>
+</html>

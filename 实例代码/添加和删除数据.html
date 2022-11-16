@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+                    table{
+                    
+                        border: 1px solid red;
+                    }
+                   
+        </style>
+</head>
+<body>
+            <table border="1">
+                    <thead>
+                        <tbody>课程名称</tbody>
+                        <tbody>所属学院</tbody>
+                        <tbody>已学会</tbody>
+                    </thead>
+
+                        <tr>
+                                <td style="width: 100px;">JavaScript</td>
+                                <td style="width: 150px;">123213</td>
+                                <td style="width: 75px;"><a href="#">delete</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>css</td>
+                            <td>123123</td>
+                            <td><a href="#">delete</a></td>
+                          </tr>
+
+                    <tr>
+                        <td>JQuery</td>
+                        <td>123123</td>
+                        <td><a href="#">delete</a></td>
+
+                      </tr>
+                  
+            </table>
+
+课程名称：<input type="text" name="" id="a">
+所属学院：<input type="text" name="" id="b">
+<button>添加数据</button>
+
+</body>
+<script src="JQuery.js"></script>
+<script>
+
+     $('button').click(function(){
+         var text1=$('#a').val();
+         var text2=$('#b').val();
+        if(text1!=""){
+           
+                var $Div=$('<tr><td>'+text1+'</td><td>'+text2+'</td><td><a href="#">delete</a></td></tr>');
+                // $Div.find('a').click(function(){
+                //     $(this).parent().parent().remove();
+                // });
+                $('table').append($Div);
+        }else{
+            alert('第一个空不能为空！');
+        }         
+     });
+
+       $('table').on('click','a',function(){
+        $(this).parent().parent().remove();
+       });
+          
+</script>
+</html>
